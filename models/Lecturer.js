@@ -10,3 +10,5 @@ const lecturerschema = new mongoose.Schema({
   fieldOfResearch: String,
   title: String
 });
+
+module.exports = mongoose.model("Lecturer", lecturerschema);
