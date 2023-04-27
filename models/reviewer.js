@@ -9,4 +9,4 @@ const reviewerSchema = new mongoose.Schema({
   title: String,
 });
 
-module.exports = mongoose.model("Reviewer", reviewerSchema);
+export const Reviewer = mongoose.model("Reviewer", reviewerSchema);

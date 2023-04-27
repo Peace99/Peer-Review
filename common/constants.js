@@ -1,3 +1,1 @@
-const roles = ["reviewer", "lecturer"];
-
-module.exports = { roles };
+export const roles = ["reviewer", "lecturer"];

@@ -1,14 +1,13 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const lecturerschema = new mongoose.Schema({
-
-  email:  String, // String is shorthand for {type: String}
+  email: String, // String is shorthand for {type: String}
   name: String,
-  password:   String,
+  password: String,
   department: String,
   articleId: mongoose.Schema.Types.ObjectId,
   fieldOfResearch: String,
-  title: String
+  title: String,
 });
 
-module.exports = mongoose.model("Lecturer", lecturerschema);
+export const Lecturer = mongoose.model("Lecturer", lecturerschema);

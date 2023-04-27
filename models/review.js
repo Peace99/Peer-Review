@@ -1,10 +1,10 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema({
-    articleId: String,
-    reviewerId: String,
-    dateReviewed: Date,
-    Comment: Array
-})
+  articleId: String,
+  reviewerId: String,
+  dateReviewed: Date,
+  Comment: Array,
+});
 
-module.exports = mongoose.model("Reveiw", reviewSchema);
+export const Review = mongoose.model("Reveiw", reviewSchema);

@@ -1,8 +1,9 @@
-const passport = require("passport");
-const passportJwt = require("passport-jwt");
-const { roles } = require("../common/constants");
-const reviewer = require("../models/reviewer");
-const Lecturer = require("../models/Lecturer");
+import passport from "passport";
+import { roles } from "../common/constants";
+import { Lecturer } from "../models/Lecturer";
+import { Reviewer } from "../models/reviewer";
+import passportJwt from "passport-jwt";
+
 passport.use(
   new passportJwt.Strategy(
     {
@@ -22,7 +23,7 @@ async function authenticate(request, jwtPayload, done) {
   const role = jwtPayload.role;
   if (!roles.includes(role)) return done("Invalid role");
   if (role === "reviewer") {
-    const reviewer = await reviewer.findById(jwtPayload.id);
+    const reviewer = await Reviewer.findById(jwtPayload.id);
     request.user = reviewer;
     return done(null, reviewer);
   } else {
