@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 
-const reviewerSchema = new mongoose.Schema({
+const lecturerschema = new mongoose.Schema({
   email: String, // String is shorthand for {type: String}
   name: String,
   password: String,
   department: String,
+  articleId: mongoose.Schema.Types.ObjectId,
   fieldOfResearch: String,
   title: String,
 });
 
-module.exports = mongoose.model("Reviewer", reviewerSchema);
+export const Lecturer = mongoose.model("Lecturer", lecturerschema);
