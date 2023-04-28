@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "type": "module",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "npm run build && node dist/app.js",
+    "build": "babel src --out-dir dist --extensions \".ts,.js\" --copy-files",
+    "start-dev": "nodemon --exec babel-node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Eirene",
@@ -23,6 +23,9 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
     "nodemon": "^2.0.21"
   }
 }
