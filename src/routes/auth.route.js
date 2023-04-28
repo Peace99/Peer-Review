@@ -23,10 +23,10 @@ router.post("/login", async (req, res) => {
         status: 400,
       })
     );
-  return {
+  return res.json({
     accessToken: generateJwt(user),
     email,
-  };
+  });
 });
 
 router.post("/sign-up", async (req, res) => {
