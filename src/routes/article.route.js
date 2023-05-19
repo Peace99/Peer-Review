@@ -35,3 +35,6 @@ router.post("/articles/", upload.single("file"), async (req, res) => {
     message: "Article created successfully",
   });
 });
+
+
+export {router}
