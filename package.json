@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "npm run build && node dist/app.js",
     "build": "babel src --out-dir dist --extensions \".ts,.js\" --copy-files",
     "start-dev": "nodemon --exec babel-node src/app.js",
+    "dev":"nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Eirene",

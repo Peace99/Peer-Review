@@ -1,4 +1,4 @@
-import dotenv from "./lib/dotenv.js";
+import "dotenv/config"
 import { createExpressApp } from "./lib/express.js";
 import {router as articleRouter} from "./routes/article.route.js";
 import {router as authRouter} from "./routes/auth.route.js"

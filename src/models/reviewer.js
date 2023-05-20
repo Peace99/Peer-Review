@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const reviewerSchema = new mongoose.Schema({
   email: String, // String is shorthand for {type: String}

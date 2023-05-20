@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { Review } from "../models/review";
+import { Review } from "../models/review.js";
 import {
   getAllReviewsByArticleId,
   submitArticle,
-} from "../services/article.service";
-import { upload } from "../middlewares/multer";
+} from "../services/article.service.js";
+import { upload } from "../middlewares/multer.js";
 
 const router = Router();
 

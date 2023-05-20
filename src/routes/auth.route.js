@@ -1,9 +1,9 @@
 import express from "express";
-import { Lecturer } from "../models/Lecturer";
-import { Reviewer } from "../models/reviewer";
-import { hash, compare } from "../lib/bcrypt";
-import { HttpError } from "../common/dto/http.error";
-import { generateJwt } from "../lib/jwt";
+import { Lecturer } from "../models/Lecturer.js";
+import { Reviewer } from "../models/reviewer.js";
+import { hash, compare } from "../lib/bcrypt.js";
+import { HttpError } from "../common/dto/http.error.js";
+import { generateJwt } from "../lib/jwt.js";
 
 const router = express.Router();
 

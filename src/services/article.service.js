@@ -1,5 +1,5 @@
-import { ArticleModel } from "../models/article.model";
-import { Review } from "../models/review";
+import { ArticleModel } from "../models/article.model.js";
+import { Review } from "../models/review.js";
 
 export async function submitArticle({ lecturerId, fieldOfResearch, file }) {
   const articleDocument = await ArticleModel.create({

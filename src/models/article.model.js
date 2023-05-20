@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { Lecturer } from "./Lecturer";
+import { Lecturer } from "./Lecturer.js";
 
 const ArticleSchema = mongoose.Schema(
   {
@@ -31,10 +31,12 @@ const ArticleSchema = mongoose.Schema(
       ref: "Review",
       default: null,
     },
-    publishStatus: true,
+    publishStatus:{
+type:Boolean, default: true
+    } ,
   },
   {
     timestamps: true,
   }
 );
-export const ArticleModel = mongoose.model("Submission");
+export const ArticleModel = mongoose.model("Submission", ArticleSchema);
