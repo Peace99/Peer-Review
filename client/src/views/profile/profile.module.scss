@@ -1,0 +1,47 @@
+.profile {
+
+  >div:nth-of-type(1) {
+    height: 10rem;
+    width: 100%;
+    background: linear-gradient(to right, #544a7d, #ffd452);
+    display: flex;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+.profileDetails {
+  height: 18rem;
+  width: 100%;
+  padding-top: 8rem;
+  padding-left: 3%;
+  border-bottom: 2px solid rgb(196, 196, 196, 0.2);
+
+  h1 {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  >div {
+    margin-bottom: 1rem;
+    height: fit-content;
+  }
+
+  >span {
+    display: inline-flex;
+    align-items: center;
+    min-width: 12%;
+    width: fit-content;
+    height: 2rem;
+    margin-right: 2%;
+    vertical-align: top;
+    background-color: #fff0da;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    padding-left: 1%;
+    color: #cc9637;
+  }
+}
