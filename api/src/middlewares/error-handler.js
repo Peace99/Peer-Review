@@ -1,5 +1,4 @@
 export function ErrorHandlerMiddleware(req, res, next) {
-  console.log(req);
   try {
     next();
   } catch (error) {

@@ -24,23 +24,26 @@ router.post("/auth", async (req, res) => {
       email,
     });
   } catch (error) {
-    console.log(error);
-    res.status(error.statusCode).json(error);
+    res.status(error?.statusCode || 500).json(error);
   }
 });
 
-router.post("/sign-up", async (req, res) => {
+router.post("/auth/sign-up", async (req, res) => {
   try {
     const { email, role, password } = req.body;
     const hashedPassword = await hash(password);
+    const reviewerExists = Reviewer.exists({ email });
+    const lecturerExists = Lecturer.exists({ email });
+    if (reviewerExists || lecturerExists)
+      throw new HttpError("User exists", 401);
     let newUser = null;
     if (role === "lecturer") {
-      newUser = Lecturer.create({
+      newUser = await Lecturer.create({
         email,
         password: hashedPassword,
       });
     } else {
-      newUser = Reviewer.create({
+      newUser = await Reviewer.create({
         email,
         password: hashedPassword,
       });
@@ -48,7 +51,7 @@ router.post("/sign-up", async (req, res) => {
     await newUser.save();
     return res.json(newUser);
   } catch (error) {
-    res.status(error.statusCode).json(error);
+    res.status(error?.statusCode || 500).json(error);
   }
 });
 

@@ -29,7 +29,7 @@ router.post("articles/:articleId/review", async (req, res) => {
 router.post("/articles/", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) {
-      return res.status(400).send("No files were uploaded.");
+      throw new HttpError("No files were uploaded");
     }
     const { id, fieldOfResearch } = req.user;
     const article = await submitArticle({
@@ -38,9 +38,7 @@ router.post("/articles/", upload.single("file"), async (req, res) => {
       file: req.file,
     });
 
-    res.json({
-      message: "Article created successfully",
-    });
+    res.json(article);
   } catch (error) {
     res.status(error?.statusCode || 500).json(error);
   }
