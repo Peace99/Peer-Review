@@ -25,6 +25,7 @@ router.post("/auth", async (req, res) => {
     return res.status(200).json({
       accessToken: generateJwt(user, role),
       email,
+      role,
     });
   } catch (error) {
     res.status(error?.statusCode || 500).json(error);

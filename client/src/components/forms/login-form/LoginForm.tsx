@@ -7,24 +7,25 @@ import { Link, useNavigate } from "react-router-dom";
 import { Api } from "../../../config/api";
 
 export function LoginForm() {
-  const [role, setRole] = useState<Role>("LECTURER");
+  const [role, setRole] = useState<Role>("lecturer");
   const [email, setEmail] = useState<string>(null);
   const [password, setPassword] = useState<string>(null);
   const navigate = useNavigate();
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    console.log("called");
     const response = await new Api().authenticate({
       role,
       email,
       password,
     });
     console.log(response?.data);
-    localStorage.setItem("authDto", response.data);
+    localStorage.setItem("authDto", JSON.stringify(response.data));
     navigate("/profile");
   };
   const handleToggle = () => {
-    if (role === "LECTURER") return setRole("REVIEWER");
-    setRole("LECTURER");
+    if (role === "lecturer") return setRole("reviewer");
+    setRole("lecturer");
   };
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
@@ -37,7 +38,7 @@ export function LoginForm() {
         onChange={handleToggle}
         data={[
           {
-            value: "LECTURER",
+            value: "lecturer",
             label: (
               <Center>
                 <Box ml={10}>Reviewer</Box>
@@ -45,7 +46,7 @@ export function LoginForm() {
             ),
           },
           {
-            value: "REVIEWER",
+            value: "reviewer",
             label: (
               <Center>
                 {" "}
@@ -56,9 +57,17 @@ export function LoginForm() {
         ]}
       />
       <label>Email</label>
-      <input required type="email" />
+      <input
+        onChange={event => setEmail(event?.target.value)}
+        required
+        type="email"
+      />
       <label>Password</label>
-      <input required type="password" />
+      <input
+        onChange={event => setPassword(event?.target.value)}
+        required
+        type="password"
+      />
       <button>Submit</button>
       <Link to="/sign-up">Create An Account</Link>
     </form>

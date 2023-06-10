@@ -8,4 +8,13 @@ export class Api {
   authenticate(body: { role: Role; email: string; password: string }) {
     return this.axios.post("/auth", body);
   }
+
+  signUp(body: {
+    role: Role;
+    email: string;
+    password: string;
+    fieldOfResearch: string;
+  }) {
+    return this.axios.post("/auth/sign-up", body);
+  }
 }

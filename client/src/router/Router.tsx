@@ -7,8 +7,8 @@ import { Profile } from "../views/profile/Profile";
 export function Router() {
   return (
     <Routes>
-      <Route path="/auth" element={<Auth />}>
-        <Route path="/auth" element={<LoginForm />} />
+      <Route path="/" element={<Auth />}>
+        <Route path="/" element={<LoginForm />} />
         <Route path="/auth/sign-up" element={<SignUpForm />} />
       </Route>
       <Route path="/profile" element={<Profile />} />

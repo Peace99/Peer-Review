@@ -1,5 +1,5 @@
 export class AuthDto {
-  role: "Lecturer" | "Editor" | "Reviewer";
+  role: "lecturer" | "editor" | "reviewer";
   name: string;
   email: string;
 }
