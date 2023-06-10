@@ -3,6 +3,7 @@ import { Role } from "../../../common/types";
 import { Api } from "../../../config/api";
 import styles from "./sign.up.form.module.scss";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function SignUpForm() {
   const [role, setRole] = useState<Role>("lecturer");
@@ -75,6 +76,7 @@ export function SignUpForm() {
         required
       />
       <button>Submit</button>
+      <Link to="/">Sign in</Link>
     </form>
   );
 }

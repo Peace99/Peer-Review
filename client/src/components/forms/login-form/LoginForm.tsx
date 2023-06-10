@@ -69,7 +69,7 @@ export function LoginForm() {
         type="password"
       />
       <button>Submit</button>
-      <Link to="/sign-up">Create An Account</Link>
+      <Link to="/auth/sign-up">Create An Account</Link>
     </form>
   );
 }
