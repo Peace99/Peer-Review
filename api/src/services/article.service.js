@@ -8,16 +8,24 @@ import { Reviewer } from "../models/reviewer";
  * @param {string} argument.fieldOfResearch - lecturer's field of research,
  * @param {File} argument.file document file for article
  */
-export async function submitArticle({ lecturerId, fieldOfResearch, file }) {
+export async function submitArticle({
+  lecturerId,
+  fieldOfResearch,
+  url,
+  title,
+  abstract,
+}) {
   const articleDocument = await ArticleModel.create({
-    url: file.name,
+    url,
     lecturerId,
     fieldOfResearch,
+    title,
+    abstract,
   });
-  const reviewers = await Reviewer.find({
-    fieldOfResearch,
-  });
-  articleDocument.reviewerId = reviewers[0]._id;
+  // const reviewers = await Reviewer.find({
+  //   fieldOfResearch,
+  // });
+  // articleDocument.reviewerId = reviewers[0]._id;
   return articleDocument.save();
 }
 

@@ -2,6 +2,7 @@ import express from "express";
 import { connectDB } from "../database/connect.js";
 import { ErrorHandlerMiddleware } from "../middlewares/error-handler.js";
 import cors from "cors";
+import path from "path";
 
 /** Function to scaffold our express server bundled with all important middlewares- and configuration. Done to declutter app.js file */
 export function createExpressApp() {

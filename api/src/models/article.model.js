@@ -26,12 +26,11 @@ const ArticleSchema = mongoose.Schema(
     },
     reviewerId: {
       type: Schema.Types.ObjectId,
-      required: true,
       ref: "Reviewer",
+      default: null,
     },
     review: {
       type: Schema.Types.ObjectId,
-      required: true,
       ref: "Review",
       default: null,
     },

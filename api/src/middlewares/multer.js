@@ -1,16 +1,14 @@
 import multer from "multer";
 import path from "path";
+import { removeSpaces } from "../common/util";
 
 // Multer middleware to handle in memory storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./uploads");
+    cb(null, "./src/uploads");
   },
   filename: (req, file, cb) => {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
+    cb(null, removeSpaces(file.originalname));
   },
 });
 

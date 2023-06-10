@@ -13,14 +13,17 @@ router.post("/auth", async (req, res) => {
     let user = null;
     const findQuery = { email };
     user = await Lecturer.findOne(findQuery);
+    let role = "lecturer";
     if (!user) {
       user = await Reviewer.findOne(findQuery);
+      role = "reviewer";
     }
     if (!user) throw new HttpError("User Not found", 404);
     const passwordMatch = await compare(password, user.password);
-    if (!passwordMatch) new HttpError("Invalid email or p[", 401);
-    return res.status(500).json({
-      accessToken: generateJwt(user),
+    if (!passwordMatch) new HttpError("Invalid email or password", 401);
+
+    return res.status(200).json({
+      accessToken: generateJwt(user, role),
       email,
     });
   } catch (error) {
@@ -32,8 +35,8 @@ router.post("/auth/sign-up", async (req, res) => {
   try {
     const { email, role, password } = req.body;
     const hashedPassword = await hash(password);
-    const reviewerExists = Reviewer.exists({ email });
-    const lecturerExists = Lecturer.exists({ email });
+    const reviewerExists = await Reviewer.exists({ email });
+    const lecturerExists = await Lecturer.exists({ email });
     if (reviewerExists || lecturerExists)
       throw new HttpError("User exists", 401);
     let newUser = null;
@@ -49,7 +52,7 @@ router.post("/auth/sign-up", async (req, res) => {
       });
     }
     await newUser.save();
-    return res.json(newUser);
+    return res.status(201).json(newUser);
   } catch (error) {
     res.status(error?.statusCode || 500).json(error);
   }

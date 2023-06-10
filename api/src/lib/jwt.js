@@ -3,18 +3,19 @@ import jwt from "jsonwebtoken";
 
 const jwtSecret = process.env.JWT_SECRET;
 
-export async function generateJwt(user) {
+export function generateJwt(user, role) {
   const { email, id } = user;
-  const token = jwt.sign(
+  console.log(role);
+  return jwt.sign(
     {
       sub: id,
+      role,
     },
     jwtSecret,
     {
-      expiresIn: "10m",
+      expiresIn: "1000m",
     }
   );
-  return token;
 }
 
 /** This function is used to verify jwts using the secret key */
