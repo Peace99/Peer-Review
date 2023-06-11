@@ -1,7 +1,7 @@
 import passport from "passport";
-import { roles } from "../common/constants";
-import { Lecturer } from "../models/Lecturer";
-import { Reviewer } from "../models/reviewer";
+import { roles } from "../common/constants.js";
+import { Lecturer } from "../models/Lecturer.js";
+import { Reviewer } from "../models/reviewer.js";
 import passportJwt from "passport-jwt";
 import { Request } from "express";
 
