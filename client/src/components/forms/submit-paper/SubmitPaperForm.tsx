@@ -7,6 +7,19 @@ export function SubmitPaperForm() {
   const onSubmit = () => {};
   return (
     <form className={styles.submitPaperForm} onSubmit={handleSubmit(onSubmit)}>
+      <Select
+        sx={{
+          width: "30%",
+          marginBottom: "3rem",
+        }}
+        label="Type of Review"
+        placeholder="Pick one"
+        data={[
+          { value: "Open Review", label: "Open Review" },
+          { value: "Double-blind Review", label: "Double-blind Review" },
+          { value: "Single-blind Review", label: "Single-blind Review" },
+        ]}
+      />
       <label>Journal</label>
       <Select
         sx={{
@@ -64,6 +77,8 @@ export function SubmitPaperForm() {
         label="Accompanying letter"
         withAsterisk
       />
+      <button>Submit</button>
+      <Link to="/">Sign in</Link>
     </form>
   );
 }
