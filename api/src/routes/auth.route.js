@@ -26,6 +26,8 @@ router.post("/auth", async (req, res) => {
       accessToken: generateJwt(user, role),
       email,
       role,
+      fieldOfResearch: user.fieldOfResearch,
+      name: user.name
     });
   } catch (error) {
     res.status(error?.statusCode || 500).json(error);
@@ -34,7 +36,7 @@ router.post("/auth", async (req, res) => {
 
 router.post("/auth/sign-up", async (req, res) => {
   try {
-    const { email, role, password } = req.body;
+    const {title, name, email, role, password, fieldOfResearch} = req.body;
     const hashedPassword = await hash(password);
     const reviewerExists = await Reviewer.exists({ email });
     const lecturerExists = await Lecturer.exists({ email });
@@ -43,12 +45,18 @@ router.post("/auth/sign-up", async (req, res) => {
     let newUser = null;
     if (role === "lecturer") {
       newUser = await Lecturer.create({
+        title,
+        name,
         email,
+        fieldOfResearch,
         password: hashedPassword,
       });
     } else {
       newUser = await Reviewer.create({
+        title,
+        name,
         email,
+        fieldOfResearch,
         password: hashedPassword,
       });
     }

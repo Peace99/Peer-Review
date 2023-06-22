@@ -6,7 +6,7 @@ import { LecturerTab } from "../../components/lecturer-tab/LecturerTab";
 import { ReviewerTab } from "../../components/reviewer-tab/ReviewerTab";
 
 export function Profile() {
-  const { role }: AuthDto = JSON.parse(localStorage.getItem("authDto"));
+  const { role, name, email, fieldOfResearch }: AuthDto = JSON.parse(localStorage.getItem("authDto"));
   return (
     <Page className={styles.profile}>
       <div>
@@ -22,11 +22,13 @@ export function Profile() {
       </div>
       <div className={styles.profileDetails}>
         <div>
-          <h1>Sola Edagbami</h1>
-          <p>solaedagbami@gmail.com</p>
+          <h1>{
+            name
+            }
+            </h1>
+          <p>{email }</p>
         </div>
-        <span>Science</span>
-        <span>Computer Science</span>
+        <span>{fieldOfResearch }</span>
       </div>
       {role === "lecturer" && <LecturerTab />}
       {role === "reviewer" && <ReviewerTab />}

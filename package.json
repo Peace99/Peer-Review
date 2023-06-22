@@ -11,5 +11,8 @@
   ],
   "scripts": {
     "start-all-dev": "npm start -w api && npm run dev -w client"
+  },
+  "dependencies": {
+    "form-data": "^4.0.0"
   }
 }

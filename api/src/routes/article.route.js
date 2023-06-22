@@ -62,12 +62,13 @@ router.post(
       }
 
       const { id } = req.user;
-      const { abstract, title, fieldOfResearch } = req.body;
+      const { abstract, title, fieldOfResearch, accompanyingLetter} = req.body;
       const article = await submitArticle({
         lecturerId: id,
         fieldOfResearch,
         abstract,
         title,
+        accompanyingLetter,
         url: removeSpaces(req?.file?.originalname),
       });
       res.status(200).json(article);
