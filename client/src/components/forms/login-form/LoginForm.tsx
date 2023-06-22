@@ -9,6 +9,7 @@ import { Api } from "../../../config/api";
 export function LoginForm() {
   const [role, setRole] = useState<Role>("lecturer");
   const [email, setEmail] = useState<string>(null);
+  const [name, setName] = useState<string>(null);
   const [password, setPassword] = useState<string>(null);
   const navigate = useNavigate();
   const handleSubmit = async (event: any) => {
@@ -16,6 +17,7 @@ export function LoginForm() {
     console.log("called");
     const response = await new Api().authenticate({
       role,
+      name,
       email,
       password,
     });
@@ -56,15 +58,21 @@ export function LoginForm() {
           },
         ]}
       />
+      <label>Name</label>
+      <input
+        onChange={(event) => setName(event?.target.value)}
+        required
+        type="name"
+      />
       <label>Email</label>
       <input
-        onChange={event => setEmail(event?.target.value)}
+        onChange={(event) => setEmail(event?.target.value)}
         required
         type="email"
       />
       <label>Password</label>
       <input
-        onChange={event => setPassword(event?.target.value)}
+        onChange={(event) => setPassword(event?.target.value)}
         required
         type="password"
       />

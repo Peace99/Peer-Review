@@ -1,4 +1,5 @@
-/** Utility functions to generate and verify json web tokens using jsonwebtoken package. Tokens follow the Jwt Spec: https://www.rfc-editor.org/rfc/rfc7519 */
+/** Utility functions to generate and verify json web tokens using jsonwebtoken package. 
+ * Tokens follow the Jwt Spec: https://www.rfc-editor.org/rfc/rfc7519 */
 import jwt from "jsonwebtoken";
 
 const jwtSecret = process.env.JWT_SECRET;

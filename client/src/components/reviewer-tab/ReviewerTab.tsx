@@ -1,6 +1,6 @@
 import { Tabs } from "@mantine/core";
 import { Manuscripts } from "../manuscripts/Manuscripts";
-import { SubmitPaperForm } from "../forms/submit-paper/SubmitPaperForm";
+import { Dashboard } from "../dashboard/Dashboard";
 
 export function ReviewerTab() {
   return (
@@ -10,24 +10,24 @@ export function ReviewerTab() {
           sx={{
             marginLeft: "1rem",
           }}
-          value="manuscripts"
+          value="dashboard"
         >
-          Manuscripts
+          Dashboard
         </Tabs.Tab>
         <Tabs.Tab
           sx={{
             marginLeft: "1rem",
           }}
-          value="submit_paper"
+          value="manusripts"
         >
-          Submit Paper
+          Manuscripts
         </Tabs.Tab>
       </Tabs.List>
+      <Tabs.Panel value="dashboard" pt="xs">
+        <Dashboard />
+      </Tabs.Panel>
       <Tabs.Panel value="manuscripts" pt="xs">
         <Manuscripts />
-      </Tabs.Panel>
-      <Tabs.Panel value="submit_paper" pt="xs">
-        <SubmitPaperForm />
       </Tabs.Panel>
     </Tabs>
   );

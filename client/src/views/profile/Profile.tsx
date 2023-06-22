@@ -22,8 +22,8 @@ export function Profile() {
       </div>
       <div className={styles.profileDetails}>
         <div>
-          <h1>Ekara Daniel</h1>
-          <p>daniel.ekara.dev@gmail.com</p>
+          <h1>Sola Edagbami</h1>
+          <p>solaedagbami@gmail.com</p>
         </div>
         <span>Science</span>
         <span>Computer Science</span>

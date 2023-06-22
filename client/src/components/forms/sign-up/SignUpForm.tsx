@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 export function SignUpForm() {
   const [role, setRole] = useState<Role>("lecturer");
+  const [name, setName] = useState<string>(null);
+  const [title, setTitle] = useState<string>(null);
   const [email, setEmail] = useState<string>(null);
   const [password, setPassword] = useState<string>(null);
   const [fieldOfResearch, setFieldOfResearch] = useState<string>(null);
@@ -16,6 +18,8 @@ export function SignUpForm() {
     try {
       await new Api().signUp({
         role,
+        title,
+        name,
         email,
         password,
         fieldOfResearch,
@@ -58,21 +62,33 @@ export function SignUpForm() {
           },
         ]}
       />
+      <label>Title</label>
+      <input
+        onChange={(event) => setTitle(event?.target.value)}
+        required
+        type="title"
+      />
+      <label>Name</label>
+      <input
+        onChange={(event) => setName(event?.target.value)}
+        required
+        type="name"
+      />
       <label>Email</label>
       <input
-        onChange={event => setEmail(event?.target.value)}
+        onChange={(event) => setEmail(event?.target.value)}
         required
         type="email"
       />
       <label>Password</label>
       <input
-        onChange={event => setPassword(event?.target.value)}
+        onChange={(event) => setPassword(event?.target.value)}
         required
         type="password"
       />
       <label>Field of research</label>
       <input
-        onChange={event => setFieldOfResearch(event?.target.value)}
+        onChange={(event) => setFieldOfResearch(event?.target.value)}
         required
       />
       <button>Submit</button>

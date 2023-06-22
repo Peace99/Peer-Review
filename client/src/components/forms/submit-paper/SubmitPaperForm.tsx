@@ -16,13 +16,35 @@ export function SubmitPaperForm() {
         label="Pick your journal"
         placeholder="Pick one"
         data={[
-          { value: "react", label: "React" },
-          { value: "ng", label: "Angular" },
-          { value: "svelte", label: "Svelte" },
-          { value: "vue", label: "Vue" },
+          { value: "Journals of Business", label: "Journals of Business" },
+          { value: "Scientific Reports", label: "Scientific Reports" },
+          { value: "Journal of Biological Sciences", label: "Svelte" },
+          {
+            value: "Journal of Educational Research",
+            label: "Journal of Educational Research",
+          },
         ]}
       />
-      <label>file</label>
+      <label>Type of Article</label>
+      <Select
+        sx={{
+          width: "30%",
+          marginBottom: "3rem",
+        }}
+        label="Article Type"
+        placeholder="Pick one"
+        data={[
+          { value: "Review Articles", label: "Review Articles" },
+          { value: "Conference Paper", label: "Conference Paperr" },
+          { value: "Case Study", label: "Case Study" },
+          { value: "Editorials", label: "Editorials" },
+        ]}
+      />
+      {/* <label>Title of Article</label>
+      <input onChange={(event) => setName(event?.target.value)}
+      required
+      /> */}
+      <label>File</label>
       <FileInput
         sx={{
           width: "30%",
@@ -30,6 +52,16 @@ export function SubmitPaperForm() {
         }}
         placeholder="Pick file"
         label="Your Article file"
+        withAsterisk
+      />
+      <label>Letter</label>
+      <FileInput
+        sx={{
+          width: "30%",
+          marginBottom: "3rem",
+        }}
+        placeholder="Pick file"
+        label="Accompanying letter"
         withAsterisk
       />
     </form>

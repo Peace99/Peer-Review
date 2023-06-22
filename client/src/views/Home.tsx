@@ -12,6 +12,7 @@ export function Home() {
       <div>
         <Link to="/home/manuscripts" />
         <Link to="/home/submit-paper" />
+        <Link to="/home/dashboard" />
       </div>
       <Outlet />
     </Page>
