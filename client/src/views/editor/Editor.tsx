@@ -35,7 +35,7 @@ export function Editor({ children, className }: props) {
         {/* First Slide */}
         {/* <FirstSlide /> */}
         {/* Second Slide */}
-        <SecondSlide />
+        {/* <SecondSlide /> */}
       </div>
     </div>
   );
