@@ -1,5 +1,5 @@
 import { AuthDto } from "../models/auth.dto";
-import {FormData}  from "fo"
+// import {FormData}  from "fo"
 
 // NOT PRODUCTION GRADE. TO BE REFACTORED
 export function isAuthenticated(): boolean {
@@ -15,21 +15,21 @@ export function getLocalStorageParams() {
   return JSON.parse(localStorage.getItem("authDto")) as AuthDto;
 }
 
-export function generateFileUploadRequestBody({
-  file,
-  title,
-  abstract,
-  fieldOfResearch,
-  accompanyingLetter,
-}: {
-  file: File;
-  title: string;
-  abstract: string;
-  fieldOfResearch: string;
-  accompanyingLetter: string;
-}) 
-: FormData
-{
-const formData = new FormData()
-formData.append()
-}
+// export function generateFileUploadRequestBody({
+//   file,
+//   title,
+//   abstract,
+//   fieldOfResearch,
+//   accompanyingLetter,
+// }: {
+//   file: File;
+//   title: string;
+//   abstract: string;
+//   fieldOfResearch: string;
+//   accompanyingLetter: string;
+// }) 
+// : FormData
+// {
+// const formData = new FormData()
+// formData.append(file, title, abstract, fieldOfResearch, accompanyingLetter);
+// }

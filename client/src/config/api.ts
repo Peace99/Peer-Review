@@ -8,7 +8,6 @@ export class Api {
   });
   authenticate(body: {
     role: Role;
-    name: string;
     email: string;
     password: string;
   }) {

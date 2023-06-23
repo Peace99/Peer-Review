@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import { Role } from "../../../common/types";
 import { useState } from "react";
 import styles from "./login.form.module.scss";
@@ -9,7 +9,6 @@ import { Api } from "../../../config/api";
 export function LoginForm() {
   const [role, setRole] = useState<Role>("lecturer");
   const [email, setEmail] = useState<string>(null);
-  const [name, setName] = useState<string>(null);
   const [password, setPassword] = useState<string>(null);
   const navigate = useNavigate();
   const handleSubmit = async (event: any) => {
@@ -17,7 +16,6 @@ export function LoginForm() {
     console.log("called");
     const response = await new Api().authenticate({
       role,
-      name,
       email,
       password,
     });
@@ -26,8 +24,8 @@ export function LoginForm() {
     navigate("/profile");
   };
   const handleToggle = () => {
-    if (role === "lecturer") return setRole("reviewer");
-    setRole("lecturer");
+    if (role === "lecturer") return setRole("lecturer");
+    setRole("reviewer");
   };
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
@@ -40,7 +38,7 @@ export function LoginForm() {
         onChange={handleToggle}
         data={[
           {
-            value: "lecturer",
+            value: "Reviewer",
             label: (
               <Center>
                 <Box ml={10}>Reviewer</Box>
@@ -48,21 +46,15 @@ export function LoginForm() {
             ),
           },
           {
-            value: "reviewer",
+            value: "lecturer",
             label: (
               <Center>
                 {" "}
-                <Box ml={10}>Lecturer</Box>
+                <Box ml={10}>Author</Box>
               </Center>
             ),
           },
         ]}
-      />
-      <label>Name</label>
-      <input
-        onChange={(event) => setName(event?.target.value)}
-        required
-        type="name"
       />
       <label>Email</label>
       <input

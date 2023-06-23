@@ -78,7 +78,7 @@ export function SubmitPaperForm() {
         withAsterisk
       />
       <button>Submit</button>
-      <Link to="/">Sign in</Link>
+      {/* <Link to="/">Sign in</Link> */}
     </form>
   );
 }
