@@ -9,8 +9,8 @@ interface props {
 export function Articles({ articles }: props) {
   return (
     <div className={styles.articles}>
-      {articles.map(article => (
-        <Article article={article} />
+      {articles.map((article, index) => (
+        <Article article={article} key={index} />
       ))}
     </div>
   );
