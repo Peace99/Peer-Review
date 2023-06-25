@@ -10,6 +10,8 @@ import { HttpError } from "../common/dto/http.error";
 import { passport } from "../security/jwt.strategy";
 import { ArticleModel } from "../models/article.model";
 import { removeSpaces } from "../common/util";
+import { Lecturer } from "../models/Lecturer";
+import { Reviewer } from "../models/reviewer";
 
 const router = Router();
 
@@ -94,6 +96,40 @@ router.post(
         url: removeSpaces(req?.file?.originalname),
       });
       res.status(200).json(article);
+    } catch (error) {
+      console.log(error);
+      res.status(error?.statusCode || 500).json(error);
+    }
+  }
+);
+
+router.get(
+  '/articles/',
+  // [passport.authenticate("jwt", { session: false })],
+  async(req, res) => {
+    try {
+ const articles = await ArticleModel.find({})
+   .populate("lecturerId", "name") // Include the actual lecturer with only the 'name' field
+   .populate("reviewerId", "name") // Include the reviewer with only the 'name' field
+   .exec();
+
+ console.log(articles);
+
+  res.status(200).json(articles);
+    }
+  catch(error) {console.log(error);
+      res.status(error?.statusCode || 500).json(error);
+    }
+  }
+)
+
+router.get(
+  "/authors/",
+  [passport.authenticate("jwt", { session: false })],
+  async (req, res) => {
+    try {
+      const authors = await Lecturer.find();
+      res.status(200).json(authors);
     } catch (error) {
       console.log(error);
       res.status(error?.statusCode || 500).json(error);
