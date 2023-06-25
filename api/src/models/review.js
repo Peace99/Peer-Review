@@ -1,24 +1,11 @@
 import mongoose from "mongoose";
 
-const reviewSchema = new mongoose.Schema({
-  articleId: {
-    type: String,
-    required: true,
-    ref: "Article",
-  },
-  reviewerId: {
-    type: String,
-    required: true,
-    ref: "Reviewer",
-  },
-  dateReviewed: {
-    type: Date,
-    default: null,
-  },
-  comment: {
-    type: String,
-    default: null,
-  },
+export const reviewSchema = new mongoose.Schema({
+  question1: String,
+  question2: String,
+  question3: String,
+  question4: String,
+  question5: String,
 });
 
 export const Review = mongoose.model("Review", reviewSchema);
