@@ -40,14 +40,21 @@ export function SubmitPaperForm() {
         required
         label="Pick your journal"
         placeholder="Pick one"
-        onChange={value => setValue("fieldOfResearch", value)}
+        onChange={(value) => setValue("fieldOfResearch", value)}
         data={[
           { value: "Journals of Business", label: "Journals of Business" },
           { value: "Scientific Reports", label: "Scientific Reports" },
-          { value: "Journal of Biological Sciences", label: "Svelte" },
+          {
+            value: "Journal of Biological Sciences",
+            label: "Journal of Biological Sciences",
+          },
           {
             value: "Journal of Educational Research",
             label: "Journal of Educational Research",
+          },
+          {
+            value: "Journal of Computer Sciences",
+            label: "Journal of Computer Sciences",
           },
         ]}
       />

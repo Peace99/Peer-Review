@@ -10,153 +10,191 @@ export function ReviewersGuide() {
        </div>
 
        <div className="sectionTwo">
-         <h4>A. Rate The Following</h4>
-         <table className="ratings">
-           <thead>
-             <tr>
-               <th>Area</th>
-               <th>Excellent</th>
-               <th>Good</th>
-               <th>Acceptable</th>
-               <th>Marginal</th>
-               <th>Poor</th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <td>Is the innovation of the research question adequate?</td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-             </tr>
-             <tr>
-               <td>
+         <div>
+           <h4>A. Rate The Following</h4>
+           <div className="ratings">
+             <div>
+               <label htmlFor="question1">
+                 Is the innovation of the research question adequate?
+               </label>
+               <div>
+                 <label>
+                   <input type="radio" name="question1" value="excellent" />
+                   Excellent
+                 </label>
+                 <label>
+                   <input type="radio" name="question1" value="good" />
+                   Good
+                 </label>
+                 <label>
+                   <input type="radio" name="question1" value="acceptable" />
+                   Acceptable
+                 </label>
+                 <label>
+                   <input type="radio" name="question1" value="marginal" />
+                   Marginal
+                 </label>
+                 <label>
+                   <input type="radio" name="question1" value="poor" />
+                   Poor
+                 </label>
+               </div>
+             </div>
+             <div>
+               <label htmlFor="question2">
                  Does the paper demonstrate an adequate understanding of the
                  relevant literature in the field?
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-             </tr>
-             <tr>
-               <td>
+               </label>
+               <div>
+                 <label>
+                   <input type="radio" name="question2" value="excellent" />
+                   Excellent
+                 </label>
+                 <label>
+                   <input type="radio" name="question2" value="good" />
+                   Good
+                 </label>
+                 <label>
+                   <input type="radio" name="question2" value="acceptable" />
+                   Acceptable
+                 </label>
+                 <label>
+                   <input type="radio" name="question2" value="marginal" />
+                   Marginal
+                 </label>
+                 <label>
+                   <input type="radio" name="question2" value="poor" />
+                   Poor
+                 </label>
+               </div>
+             </div>
+             <div>
+               <label htmlFor="question3">
                  Are the methods and results presented clearly and
                  appropriately?
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-             </tr>
-             <tr>
-               <td>Is the structure of the paper adequate?</td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-             </tr>
-             <tr>
-               <td>
+               </label>
+               <div>
+                 <label>
+                   <input type="radio" name="question3" value="excellent" />
+                   Excellent
+                 </label>
+                 <label>
+                   <input type="radio" name="question3" value="good" />
+                   Good
+                 </label>
+                 <label>
+                   <input type="radio" name="question3" value="acceptable" />
+                   Acceptable
+                 </label>
+                 <label>
+                   <input type="radio" name="question3" value="marginal" />
+                   Marginal
+                 </label>
+                 <label>
+                   <input type="radio" name="question3" value="poor" />
+                   Poor
+                 </label>
+               </div>
+             </div>
+             <div>
+               <label htmlFor="question4">
+                 Is the structure of the paper adequate?
+               </label>
+               <div>
+                 <label>
+                   <input type="radio" name="question4" value="excellent" />
+                   Excellent
+                 </label>
+                 <label>
+                   <input type="radio" name="question4" value="good" />
+                   Good
+                 </label>
+                 <label>
+                   <input type="radio" name="question4" value="acceptable" />
+                   Acceptable
+                 </label>
+                 <label>
+                   <input type="radio" name="question4" value="marginal" />
+                   Marginal
+                 </label>
+                 <label>
+                   <input type="radio" name="question4" value="poor" />
+                   Poor
+                 </label>
+               </div>
+             </div>
+             <div>
+               <label htmlFor="question5">
                  Does the paper contain significant contribution adequate to
                  theory or practice?
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-               <td>
-                 <input type="text" />
-               </td>
-             </tr>
-           </tbody>
-         </table>
+               </label>
+               <div>
+                 <label>
+                   <input type="radio" name="question5" value="excellent" />
+                   Excellent
+                 </label>
+                 <label>
+                   <input type="radio" name="question5" value="good" />
+                   Good
+                 </label>
+                 <label>
+                   <input type="radio" name="question5" value="acceptable" />
+                   Acceptable
+                 </label>
+                 <label>
+                   <input type="radio" name="question5" value="marginal" />
+                   Marginal
+                 </label>
+                 <label>
+                   <input type="radio" name="question5" value="poor" />
+                   Poor
+                 </label>
+               </div>
+             </div>
+           </div>
+         </div>
        </div>
-
        <div className="sectionThree">
          <div>
            <h4>B. Recommendation</h4>
-           <table className="recTable">
-             <tbody>
-               <tr>
-                 <td>Accept</td>
-                 <td>
-                   <input type="text" />
-                 </td>
-               </tr>
-               <tr>
-                 <td>Accept with Minor Revision</td>
-                 <td>
-                   <input type="text" />
-                 </td>
-               </tr>
-               <tr>
-                 <td>Requires Major Revision</td>
-                 <td>
-                   <input type="text" />
-                 </td>
-               </tr>
-               <tr>
-                 <td>Reject</td>
-                 <td>
-                   <input type="text" />
-                 </td>
-               </tr>
-             </tbody>
-           </table>
+           <div className="recTable">
+             <div>
+               <label htmlFor="accept">Accept</label>
+               <input
+                 type="radio"
+                 name="recommendation"
+                 id="accept"
+                 value="accept"
+               />
+             </div>
+             <div>
+               <label htmlFor="minorRevision">Accept with Minor Revision</label>
+               <input
+                 type="radio"
+                 name="recommendation"
+                 id="minorRevision"
+                 value="minorRevision"
+               />
+             </div>
+             <div>
+               <label htmlFor="majorRevision">Requires Major Revision</label>
+               <input
+                 type="radio"
+                 name="recommendation"
+                 id="majorRevision"
+                 value="majorRevision"
+               />
+             </div>
+             <div>
+               <label htmlFor="reject">Reject</label>
+               <input
+                 type="radio"
+                 name="recommendation"
+                 id="reject"
+                 value="reject"
+               />
+             </div>
+           </div>
          </div>
        </div>
 
