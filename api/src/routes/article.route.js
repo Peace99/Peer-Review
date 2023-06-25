@@ -60,9 +60,8 @@ router.post(
       if (!req.file) {
         throw new HttpError("No files were uploaded");
       }
-
       const { id } = req.user;
-      const { abstract, title, fieldOfResearch, accompanyingLetter} = req.body;
+      const { abstract, title, fieldOfResearch, accompanyingLetter } = req.body;
       const article = await submitArticle({
         lecturerId: id,
         fieldOfResearch,
@@ -73,6 +72,7 @@ router.post(
       });
       res.status(200).json(article);
     } catch (error) {
+      console.log(error);
       res.status(error?.statusCode || 500).json(error);
     }
   }

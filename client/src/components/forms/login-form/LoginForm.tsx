@@ -58,13 +58,13 @@ export function LoginForm() {
       />
       <label>Email</label>
       <input
-        onChange={(event) => setEmail(event?.target.value)}
+        onChange={event => setEmail(event?.target.value)}
         required
         type="email"
       />
       <label>Password</label>
       <input
-        onChange={(event) => setPassword(event?.target.value)}
+        onChange={event => setPassword(event?.target.value)}
         required
         type="password"
       />

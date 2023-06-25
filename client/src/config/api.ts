@@ -1,16 +1,15 @@
 import Axios from "axios";
 import { Role } from "../common/types";
-
+import {
+  generateAuthHeader,
+  generateFileUploadRequestBody,
+} from "../common/util";
 
 export class Api {
   private readonly axios = Axios.create({
     baseURL: "http://localhost:8080",
   });
-  authenticate(body: {
-    role: Role;
-    email: string;
-    password: string;
-  }) {
+  authenticate(body: { role: Role; email: string; password: string }) {
     return this.axios.post("/auth", body);
   }
 
@@ -25,7 +24,7 @@ export class Api {
     return this.axios.post("/auth/sign-up", body);
   }
 
-  uploadFile({
+  submitReview({
     file,
     title,
     abstract,
@@ -35,13 +34,17 @@ export class Api {
     file: File;
     title: string;
     abstract: string;
-    fieldOfResearch: string,
+    fieldOfResearch: string;
     accompanyingLetter: string;
   }) {
     const formData = generateFileUploadRequestBody({
       file,
+      title,
+      abstract,
+      fieldOfResearch,
+      accompanyingLetter,
     });
-    return axios.post("/file", formData, {
+    return this.axios.post("/articles", formData, {
       headers: {
         ...generateAuthHeader(),
       },

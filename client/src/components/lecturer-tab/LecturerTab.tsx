@@ -5,17 +5,8 @@ import { SubmitPaperForm } from "../forms/submit-paper/SubmitPaperForm";
 
 export function LecturerTab() {
   return (
-    <Tabs defaultValue="dashboard">
+    <Tabs defaultValue="manuscripts">
       <Tabs.List>
-        <Tabs.Tab
-          sx={{
-            marginLeft: "1rem",
-          }}
-          value="dashboard"
-        >
-          Dashboard
-        </Tabs.Tab>
-
         <Tabs.Tab
           sx={{
             marginLeft: "1rem",
@@ -24,7 +15,6 @@ export function LecturerTab() {
         >
           Manuscripts
         </Tabs.Tab>
-
         <Tabs.Tab
           sx={{
             marginLeft: "1rem",
@@ -34,15 +24,9 @@ export function LecturerTab() {
           Submit Paper
         </Tabs.Tab>
       </Tabs.List>
-
-      <Tabs.Panel value="dashboard" pt="xs">
-        <Dashboard />
-      </Tabs.Panel>
-
       <Tabs.Panel value="manuscripts" pt="xs">
         <Manuscripts />
       </Tabs.Panel>
-
       <Tabs.Panel value="submit_paper" pt="xs">
         <SubmitPaperForm />
       </Tabs.Panel>

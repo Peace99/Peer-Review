@@ -2,5 +2,6 @@ export class AuthDto {
   role: "lecturer" | "editor" | "reviewer";
   name: string;
   email: string;
-  fieldOfResearch: string
+  fieldOfResearch: string;
+  accessToken: string;
 }
