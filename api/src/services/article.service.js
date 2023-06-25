@@ -22,10 +22,8 @@ export async function submitArticle({
     title,
     abstract,
   });
-  // const reviewers = await Reviewer.find({
-  //   fieldOfResearch,
-  // });
-  // articleDocument.reviewerId = reviewers[0]._id;
+  const reviewers = await Reviewer.find({});
+  articleDocument.reviewerId = reviewers[0]._id;
   return articleDocument.save();
 }
 
