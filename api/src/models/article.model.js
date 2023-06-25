@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import { reviewSchema } from "./review";
 
 /** Article schema defined with validation rules */
 const ArticleSchema = mongoose.Schema(
@@ -30,8 +31,7 @@ const ArticleSchema = mongoose.Schema(
       default: null,
     },
     review: {
-      type: Schema.Types.ObjectId,
-      ref: "Review",
+      type: reviewSchema,
       default: null,
     },
     published: {
