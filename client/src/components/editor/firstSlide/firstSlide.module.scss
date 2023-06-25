@@ -1,0 +1,19 @@
+.firstSlide {
+  display: flex;
+  justify-content: space-between;
+
+  .editorBox {
+    border: 1px solid black;
+    width: 20%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    h3 {
+      color: rgb(90, 22, 22);
+    }
+  }
+}

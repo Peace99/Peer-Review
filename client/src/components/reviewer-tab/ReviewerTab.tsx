@@ -1,6 +1,6 @@
 import { Tabs } from "@mantine/core";
 import { Manuscripts } from "../manuscripts/Manuscripts";
-import { Dashboard } from "../dashboard/Dashboard";
+import { ReviewersGuide } from "../forms/review-article-form/ReviewArticleForm";
 
 export function ReviewerTab() {
   return (
@@ -12,11 +12,23 @@ export function ReviewerTab() {
           }}
           value="manuscripts"
         >
-          Manuscripts
+         Manuscripts
+        </Tabs.Tab>
+        <Tabs.Tab
+          sx={{
+            marginLeft: "1rem",
+          }}
+          value="review"
+        >
+          Review
         </Tabs.Tab>
       </Tabs.List>
+
       <Tabs.Panel value="manuscripts" pt="xs">
         <Manuscripts />
+      </Tabs.Panel>
+      <Tabs.Panel value="Review" pt="xs">
+        <ReviewersGuide />
       </Tabs.Panel>
     </Tabs>
   );

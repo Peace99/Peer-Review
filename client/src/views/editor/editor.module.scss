@@ -1,0 +1,25 @@
+.editorNav {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+  padding: 5px 10px;
+
+  .active {
+    color: white;
+    background-color: rgb(90, 22, 22);
+  }
+
+  .inactive {
+    color: rgb(90, 22, 22);
+  }
+
+  .active,
+  .inactive {
+    padding: 6px 10px;
+    border: 1px solid rgb(90, 22, 22);
+    border-radius: 4px;
+  }
+}

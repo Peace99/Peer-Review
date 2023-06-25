@@ -38,7 +38,7 @@ export function LoginForm() {
         onChange={handleToggle}
         data={[
           {
-            value: "reviewer",
+            value: "lecturer",
             label: (
               <Center>
                 <Box ml={10}>Reviewer</Box>
@@ -46,7 +46,7 @@ export function LoginForm() {
             ),
           },
           {
-            value: "lecturer",
+            value: "reviewer",
             label: (
               <Center>
                 <Box ml={10}>Author</Box>
