@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   findArticleById,
+  findArticlesByReviewer,
   getAllReviewsByArticleId,
   submitArticle,
 } from "../services/article.service";
@@ -23,17 +24,33 @@ router.get(
   }
 );
 
-// This endpoint is used to create a review to a file
-router.post(
-  "articles/:articleId/review",
+router.get(
+  "/articles/reviewer/:reviewerId",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const articleId = req.params.articleId;
-    const article = await findArticleById(articleId);
-    article.review = req.body;
-    await article.save();
-    if (!article) throw new HttpError("Invalid http error", 404);
+    try {
+      const reviewerId = req.params.reviewerId;
+      const articles = await findArticlesByReviewer(reviewerId);
+      res.status(200).json(articles);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "error occured" });
+    }
   }
+);
+-(
+  // This endpoint is used to create a review to a file
+  router.post(
+    "articles/:articleId/review",
+    passport.authenticate("jwt", { session: false }),
+    async (req, res) => {
+      const articleId = req.params.articleId;
+      const article = await findArticleById(articleId);
+      article.review = req.body;
+      await article.save();
+      if (!article) throw new HttpError("Invalid http error", 404);
+    }
+  )
 );
 
 router.get(

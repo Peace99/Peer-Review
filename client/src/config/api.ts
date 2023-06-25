@@ -3,6 +3,7 @@ import { Role } from "../common/types";
 import {
   generateAuthHeader,
   generateFileUploadRequestBody,
+  getLocalStorageParams,
 } from "../common/util";
 
 export class Api {
@@ -45,6 +46,14 @@ export class Api {
       accompanyingLetter,
     });
     return this.axios.post("/articles", formData, {
+      headers: {
+        ...generateAuthHeader(),
+      },
+    });
+  }
+
+  getArticlesByReviewer() {
+    return this.axios.get(`/articles/reviewer/${getLocalStorageParams().id}`, {
       headers: {
         ...generateAuthHeader(),
       },

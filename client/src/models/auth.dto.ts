@@ -4,4 +4,5 @@ export class AuthDto {
   email: string;
   fieldOfResearch: string;
   accessToken: string;
+  id: string;
 }
