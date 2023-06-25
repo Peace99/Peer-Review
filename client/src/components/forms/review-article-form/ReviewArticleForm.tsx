@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./review.article.form.module.scss";
+import style from "../review-article-form/review.article.form.module.scss"
 
 
 export function ReviewersGuide() {

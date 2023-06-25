@@ -14,7 +14,7 @@ export function Editor({ children, className }: props) {
     <div className={`${styles.page} ${className}`}>
       <div className={styles.editorNav}>
         <NavLink
-          to=''
+          to=""
           end
           className={({ isActive }) =>
             isActive ? styles.active : styles.inactive
@@ -23,7 +23,7 @@ export function Editor({ children, className }: props) {
           Dashboard
         </NavLink>
         <NavLink
-          to='manuscripts'
+          to="manuscripts"
           className={({ isActive }) =>
             isActive ? styles.active : styles.inactive
           }
@@ -31,12 +31,8 @@ export function Editor({ children, className }: props) {
           Manuscripts
         </NavLink>
       </div>
-      <div>
-        {/* First Slide */}
-        {/* <FirstSlide /> */}
-        {/* Second Slide */}
-        {/* <SecondSlide /> */}
-      </div>
+      <div>{<FirstSlide />}</div>
+      {<SecondSlide />}
     </div>
   );
 }
