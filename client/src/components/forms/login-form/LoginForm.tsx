@@ -24,8 +24,8 @@ export function LoginForm() {
     navigate("/profile");
   };
   const handleToggle = () => {
-    if (role === "lecturer") return setRole("lecturer");
-    setRole("reviewer");
+    if (role === "lecturer") return setRole("reviewer");
+    setRole("lecturer");
   };
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
@@ -38,7 +38,7 @@ export function LoginForm() {
         onChange={handleToggle}
         data={[
           {
-            value: "Reviewer",
+            value: "lecturer",
             label: (
               <Center>
                 <Box ml={10}>Reviewer</Box>
@@ -46,7 +46,7 @@ export function LoginForm() {
             ),
           },
           {
-            value: "lecturer",
+            value: "reviewer",
             label: (
               <Center>
                 {" "}

@@ -2,7 +2,7 @@ import React from "react";
 import style from "./review.article.form.module.scss";
 
 
-const ReviewersGuide: React.FC = () => {
+export function ReviewersGuide() {
    return (
      <div className="container">
        <div className="guideName">
@@ -169,6 +169,5 @@ const ReviewersGuide: React.FC = () => {
        <button>Submit</button>
      </div>
    );
- };
+ }
 
- export default ReviewersGuide;
