@@ -23,7 +23,8 @@ export function ReviewerTab() {
           Review
         </Tabs.Tab>
       </Tabs.List>
-      <Tabs.Panel value="Manuscripts" pt="xs">
+
+      <Tabs.Panel value="manuscripts" pt="xs">
         <Manuscripts />
       </Tabs.Panel>
       <Tabs.Panel value="Review" pt="xs">

@@ -1,19 +1,30 @@
 import { useForm } from "react-hook-form";
 import styles from "./submit.paper.form.module.scss";
 import { FileInput, Select } from "@mantine/core";
+import { Api } from "../../../config/api";
+
+const selectWidth = "60%";
 
 export function SubmitPaperForm() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = () => {};
+  const { register, handleSubmit, setValue } = useForm();
+  const onSubmit = async (data: any) => {
+    console.log(data);
+    await new Api().submitReview(data);
+    window.alert("Article submitted");
+  };
+  const handleFileChange = (file: any) => {
+    setValue("file", file);
+  };
   return (
-    <form className={styles.submitPaperForm} onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.submitPaperForm}>
       <Select
         sx={{
-          width: "30%",
+          width: selectWidth,
           marginBottom: "3rem",
         }}
         label="Type of Review"
         placeholder="Pick one"
+        required
         data={[
           { value: "Open Review", label: "Open Review" },
           { value: "Double-blind Review", label: "Double-blind Review" },
@@ -23,11 +34,13 @@ export function SubmitPaperForm() {
       <label>Journal</label>
       <Select
         sx={{
-          width: "30%",
+          width: selectWidth,
           marginBottom: "3rem",
         }}
+        required
         label="Pick your journal"
         placeholder="Pick one"
+        onChange={value => setValue("fieldOfResearch", value)}
         data={[
           { value: "Journals of Business", label: "Journals of Business" },
           { value: "Scientific Reports", label: "Scientific Reports" },
@@ -38,47 +51,38 @@ export function SubmitPaperForm() {
           },
         ]}
       />
-      <label>Type of Article</label>
-      <Select
-        sx={{
-          width: "30%",
-          marginBottom: "3rem",
-        }}
-        label="Article Type"
-        placeholder="Pick one"
-        data={[
-          { value: "Review Articles", label: "Review Articles" },
-          { value: "Conference Paper", label: "Conference Paperr" },
-          { value: "Case Study", label: "Case Study" },
-          { value: "Editorials", label: "Editorials" },
-        ]}
+      <label>Title of Article</label>
+      <input
+        name="title"
+        {...register("title", {
+          required: true,
+        })}
+        type="text"
       />
-      {/* <label>Title of Article</label>
-      <input onChange={(event) => setName(event?.target.value)}
-      required
-      /> */}
-      <label>File</label>
       <FileInput
         sx={{
-          width: "30%",
+          width: selectWidth,
           marginBottom: "3rem",
         }}
+        required
+        onChange={handleFileChange}
         placeholder="Pick file"
         label="Your Article file"
         withAsterisk
       />
-      <label>Letter</label>
-      <FileInput
-        sx={{
-          width: "30%",
-          marginBottom: "3rem",
-        }}
-        placeholder="Pick file"
-        label="Accompanying letter"
-        withAsterisk
+      <label>Abstract</label>
+      <textarea
+        {...register("abstract", {
+          required: true,
+        })}
       />
-      <button>Submit</button>
-      {/* <Link to="/">Sign in</Link> */}
+      <label>Accompanying Letter</label>
+      <textarea
+        {...register("accompanyingLetter", {
+          required: true,
+        })}
+      />
+      <button type="submit">Submit</button>
     </form>
   );
 }

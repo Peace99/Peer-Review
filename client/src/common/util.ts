@@ -15,21 +15,28 @@ export function getLocalStorageParams() {
   return JSON.parse(localStorage.getItem("authDto")) as AuthDto;
 }
 
-// export function generateFileUploadRequestBody({
-//   file,
-//   title,
-//   abstract,
-//   fieldOfResearch,
-//   accompanyingLetter,
-// }: {
-//   file: File;
-//   title: string;
-//   abstract: string;
-//   fieldOfResearch: string;
-//   accompanyingLetter: string;
-// }) 
-// : FormData
-// {
-// const formData = new FormData()
-// formData.append(file, title, abstract, fieldOfResearch, accompanyingLetter);
-// }
+export const generateAuthHeader = () => ({
+  Authorization: `Bearer ${getLocalStorageParams().accessToken}`,
+});
+
+export function generateFileUploadRequestBody({
+  file,
+  title,
+  abstract,
+  fieldOfResearch,
+  accompanyingLetter,
+}: {
+  file: File;
+  title: string;
+  abstract: string;
+  fieldOfResearch: string;
+  accompanyingLetter: string;
+}): FormData {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("title", title);
+  formData.append("abstract", abstract);
+  formData.append("fieldOfResearch", fieldOfResearch);
+  formData.append("accompanyingLetter", accompanyingLetter);
+  return formData;
+}

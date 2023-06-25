@@ -1,6 +1,5 @@
 export class Article {
   id: string;
-  name: string;
   url: string;
   fieldOfResearch: string;
   abstract: string;
@@ -8,4 +7,6 @@ export class Article {
   letter: string;
   title: string;
   published: boolean;
+  lecturerId: string | any;
+  review: any;
 }

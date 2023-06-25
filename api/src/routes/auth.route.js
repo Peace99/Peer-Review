@@ -27,7 +27,8 @@ router.post("/auth", async (req, res) => {
       email,
       role,
       fieldOfResearch: user.fieldOfResearch,
-      name: user.name
+      name: user.name,
+      id: user.id,
     });
   } catch (error) {
     res.status(error?.statusCode || 500).json(error);
@@ -36,7 +37,7 @@ router.post("/auth", async (req, res) => {
 
 router.post("/auth/sign-up", async (req, res) => {
   try {
-    const {title, name, email, role, password, fieldOfResearch} = req.body;
+    const { title, name, email, role, password, fieldOfResearch } = req.body;
     const hashedPassword = await hash(password);
     const reviewerExists = await Reviewer.exists({ email });
     const lecturerExists = await Lecturer.exists({ email });

@@ -56,5 +56,7 @@ export async function createReview({ articleId }) {
 export async function findArticlesByReviewer(reviewerId) {
   return ArticleModel.find({
     reviewerId,
-  });
+  })
+    .populate("lecturerId")
+    .exec();
 }
