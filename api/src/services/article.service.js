@@ -35,7 +35,7 @@ export async function getAllReviewsByArticleId(articleId) {
 
 export async function findArticleById(id) {
   return ArticleModel.findOne({
-    id,
+    _id: id,
   });
 }
 

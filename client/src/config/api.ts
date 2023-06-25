@@ -59,4 +59,21 @@ export class Api {
       },
     });
   }
+
+  createReview(
+    articleId: string,
+    body: {
+      question1: string;
+      question2: string;
+      question3: string;
+      question4: string;
+      question5: string;
+    }
+  ) {
+    return this.axios.post(`/articles/${articleId}/review`, body, {
+      headers: {
+        ...generateAuthHeader(),
+      },
+    });
+  }
 }

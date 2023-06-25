@@ -38,19 +38,25 @@ router.get(
     }
   }
 );
--(
-  // This endpoint is used to create a review to a file
-  router.post(
-    "articles/:articleId/review",
-    passport.authenticate("jwt", { session: false }),
-    async (req, res) => {
+// This endpoint is used to create a review to a file
+router.post(
+  "/articles/:articleId/review",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
       const articleId = req.params.articleId;
+      console.log(articleId);
       const article = await findArticleById(articleId);
+      if (!article) throw new HttpError("Article not found", 404);
+      console.log(article);
       article.review = req.body;
       await article.save();
-      if (!article) throw new HttpError("Invalid http error", 404);
+      res.json(article);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "error occured" });
     }
-  )
+  }
 );
 
 router.get(
